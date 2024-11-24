@@ -1,14 +1,22 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, TextInput } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, TextInput, ScrollView } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
 
-export default function PostDetailPage({navigation, route}) {
-  const {item} = route.params; 
+export default function PostDetailPage({ navigation, route }) {
+  const { item } = route.params;
+
+  if (!item) {
+    return (
+      <View style={styles.container}>
+        <Text style={styles.errorText}>Item details are unavailable.</Text>
+      </View>
+    );
+  }
 
   return (
-    <View style={styles.container}>
+    <ScrollView contentContainerStyle={styles.container}>
       <View style={styles.header}>
-      <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
+        <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
           <FontAwesome name="arrow-left" size={24} color="#000" />
           <Text style={styles.backButtonText}>Go back</Text>
         </TouchableOpacity>
@@ -27,34 +35,36 @@ export default function PostDetailPage({navigation, route}) {
       </View>
 
       <View style={styles.detailSection}>
-        <Text style={styles.detailText}>Title: { item.title } </Text>
-        <Text style={styles.detailText}>Description: (item Description)</Text>
-        <Text style={styles.detailText}>Location Found: (Insert Location Found)</Text>
-        <Text style={styles.detailText}>Current Location: (Insert Current Location)</Text>
+        <Text style={styles.detailText}>Title: {item.title}</Text>
+        <Text style={styles.detailText}>Description: {item.description || 'No description provided'}</Text>
+        <Text style={styles.detailText}>Location Found: {item.locationFound || 'Not provided'}</Text>
+        <Text style={styles.detailText}>Current Location: {item.currentLocation || 'Not provided'}</Text>
         <Text style={styles.detailText}>Additional Comments:</Text>
         <TextInput
           style={styles.commentsInput}
           placeholder="In here would be any additional information or comments presented..."
           multiline
+          editable={false}
         />
       </View>
 
-      <TouchableOpacity style={styles.contactButton}
-        onPress={() => navigation.navigate('ContactPage')}>
+      <TouchableOpacity
+        style={styles.contactButton}
+        onPress={() => navigation.navigate('ContactPage')}
+      >
         <Text style={styles.contactButtonText}>Contact</Text>
       </TouchableOpacity>
-    </View>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flexGrow: 1,
     backgroundColor: '#6ab0af',
     paddingTop: 40,
     paddingHorizontal: 20,
     alignItems: 'center',
-    justifyContent: 'center',
   },
   header: {
     flexDirection: 'row',
@@ -120,5 +130,10 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: 16,
     fontWeight: 'bold',
+  },
+  errorText: {
+    fontSize: 18,
+    color: '#fff',
+    textAlign: 'center',
   },
 });

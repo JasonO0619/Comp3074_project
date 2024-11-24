@@ -1,13 +1,11 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
-import HeadNav from './HeadNav';
 
-export default function ProfilePage({navigation}) {
+export default function ProfilePage({ navigation }) {
   return (
     <ScrollView style={styles.container}>
-      <HeadNav navigation={navigation} />
-      <View style={[styles.profileSection]}> 
+      <View style={styles.profileSection}>
         <View style={styles.avatarPlaceholderContainer}>
           <View style={styles.avatarPlaceholder}>
             <FontAwesome name="user-circle" size={70} />
@@ -30,24 +28,22 @@ export default function ProfilePage({navigation}) {
       </View>
 
       <View style={styles.menuSection}>
-        <MenuItem icon="list" title="My List"
-          onPress={() => navigation.navigate('MyListPage')} />
-        <MenuItem icon="heart" title="Favourites" 
-          onPress={() => navigation.navigate('FavouritesPage')} />
-        <MenuItem icon="cog" title="Settings"
-          onPress={() => navigation.navigate('SettingsPage')} />
-        <MenuItem icon="comment" title="Announcements"
-          onPress={() => navigation.navigate('AnnouncementsPage')} />
-        <MenuItem icon="pencil" title="Reviews"
-          onPress={() => navigation.navigate('ReviewsPage')} />
+        <MenuItem icon="list" title="My List" navigation={navigation} target="MyListPage" />
+        <MenuItem icon="heart" title="Favourites" navigation={navigation} target="FavouritesPage" />
+        <MenuItem icon="cog" title="Settings" navigation={navigation} target="Settings" />
+        <MenuItem icon="comment" title="Announcements" navigation={navigation} target="AnnouncementsPage" />
+        <MenuItem icon="pencil" title="Reviews" navigation={navigation} target="ReviewsPage" />
       </View>
     </ScrollView>
   );
 }
 
-function MenuItem({ icon, title, onPress }) {
+function MenuItem({ icon, title, navigation, target }) {
   return (
-    <TouchableOpacity style={styles.menuItem} onPress={onPress}>
+    <TouchableOpacity
+      style={styles.menuItem}
+      onPress={() => navigation.navigate(target)} 
+    >
       <FontAwesome name={icon} size={24} color="#fff" />
       <Text style={styles.menuText}>{title}</Text>
     </TouchableOpacity>
@@ -58,6 +54,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#E0F7FA',
+    paddingTop: 40,
   },
   profileSection: {
     alignItems: 'center',
@@ -97,7 +94,7 @@ const styles = StyleSheet.create({
   buttonContainer: {
     flexDirection: 'row',
     marginTop: 15,
-  }, 
+  },
   editButton: {
     backgroundColor: '#f28b82',
     paddingVertical: 8,

@@ -7,15 +7,17 @@ import ForgetPassword from './screens/ForgetPassword';
 import Register from './screens/Register';
 import ProfilePage from './header/ProfilePage';
 import ItemList from './screens/ItemList';
-import CreatePost from './header/CreatePost';
+import ContactPage from './screens/ContactPage';
+import CreateFormPage from './screens/CreateFormPage';
+import PostDetailPage from './screens/PostDetailPage';
 import MyListPage from './screens/MyListPage';
 import FavouritesPage from './screens/FavouritesPage';
 import PostDetailPage from './screens/PostDetailPage';
-import ContactPage from './screens/ContactPage';
 import UserPage from './screens/UserPage';
 import AnnouncementsPage from './screens/AnnouncementPage';
 import EditProfile from './screens/EditProfile';
 
+import Settings from './screens/Settings';
 
 const Stack = createStackNavigator();
 
@@ -37,7 +39,8 @@ const App = () => {
         <Stack.Screen name="UserPage" component={UserPage} />
         <Stack.Screen name="AnnouncementsPage" component={AnnouncementsPage} />
         <Stack.Screen name="EditProfile" component={EditProfile} />
-
+        <Stack.Screen name='Settings' component={Settings}/>
+          
       </Stack.Navigator>
     </NavigationContainer>
     // test()
