@@ -1,7 +1,8 @@
 import React from 'react';
-import { View, Text, StyleSheet, FlatList, ScrollView} from 'react-native';
+import { View, Text, StyleSheet, FlatList, ScrollView } from 'react-native';
+import HeadNav from '../header/HeadNav';
 
-const HomeScreen = () => {
+const HomeScreen = ({ navigation }) => {
   const sellItems = [
     { id: '1', title: 'Item 1' },
     { id: '2', title: 'Item 2' },
@@ -26,13 +27,13 @@ const HomeScreen = () => {
     { id: '3', title: 'Item Z' },
     { id: '4', title: 'Item W' },
   ];
-  const FoundItems = [
+
+  const foundItems = [
     { id: '1', title: 'Item X' },
     { id: '2', title: 'Item Y' },
     { id: '3', title: 'Item Z' },
     { id: '4', title: 'Item W' },
   ];
-
 
   const renderSquare = ({ item }) => (
     <View style={styles.square}>
@@ -41,68 +42,73 @@ const HomeScreen = () => {
   );
 
   return (
-    <ScrollView style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.headerTitle}>SELL</Text>
+    <View style={styles.container}>
+      <HeadNav navigation={navigation} />
+
+      
+      <ScrollView>
+        <View style={styles.header}>
+          <Text style={styles.headerTitle}>SELL</Text>
+          <Text style={styles.arrowText}>→</Text>
+        </View>
+        <FlatList
+          data={sellItems}
+          renderItem={renderSquare}
+          keyExtractor={(item) => item.id}
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          contentContainerStyle={styles.listContainer}
+        />
+
+        <View style={styles.header}>
+          <Text style={styles.headerTitle}>TRADE</Text>
+          <Text style={styles.arrowText}>→</Text>
+        </View>
+        <FlatList
+          data={tradeItems}
+          renderItem={renderSquare}
+          keyExtractor={(item) => item.id}
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          contentContainerStyle={styles.listContainer}
+        />
+
         
+        <View style={styles.header}>
+          <Text style={styles.headerTitle}>LEND</Text>
           <Text style={styles.arrowText}>→</Text>
-      </View>
-      <FlatList
-        data={sellItems}
-        renderItem={renderSquare}
-        keyExtractor={(item) => item.id}
-        horizontal
-        showsHorizontalScrollIndicator={false}
-        contentContainerStyle={styles.listContainer}
-      />
+        </View>
+        <FlatList
+          data={lendItems}
+          renderItem={renderSquare}
+          keyExtractor={(item) => item.id}
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          contentContainerStyle={styles.listContainer}
+        />
 
-      <View style={styles.header}>
-        <Text style={styles.headerTitle}>TRADE</Text>
+    
+        <View style={styles.header}>
+          <Text style={styles.headerTitle}>FOUND</Text>
           <Text style={styles.arrowText}>→</Text>
-      </View>
-      <FlatList
-        data={tradeItems}
-        renderItem={renderSquare}
-        keyExtractor={(item) => item.id}
-        horizontal
-        showsHorizontalScrollIndicator={false}
-        contentContainerStyle={styles.listContainer}
-      />
-
-      <View style={styles.header}>
-        <Text style={styles.headerTitle}>LEND</Text>
-          <Text style={styles.arrowText}>→</Text>
-      </View>
-      <FlatList
-        data={lendItems}
-        renderItem={renderSquare}
-        keyExtractor={(item) => item.id}
-        horizontal
-        showsHorizontalScrollIndicator={false}
-        contentContainerStyle={styles.listContainer}
-      />
-
-<View style={styles.header}>
-        <Text style={styles.headerTitle}>Found</Text>
-          <Text style={styles.arrowText}>→</Text>
-      </View>
-      <FlatList
-        data={FoundItems}
-        renderItem={renderSquare}
-        keyExtractor={(item) => item.id}
-        horizontal
-        showsHorizontalScrollIndicator={false}
-        contentContainerStyle={styles.listContainer}
-      />
-    </ScrollView>
+        </View>
+        <FlatList
+          data={foundItems}
+          renderItem={renderSquare}
+          keyExtractor={(item) => item.id}
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          contentContainerStyle={styles.listContainer}
+        />
+      </ScrollView>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#E0F7FA', 
-    paddingHorizontal: 16,
+    backgroundColor: '#E0F7FA',
   },
   header: {
     flexDirection: 'row',
@@ -113,12 +119,7 @@ const styles = StyleSheet.create({
   headerTitle: {
     fontSize: 24,
     fontWeight: 'bold',
-    color: '#FFFFFF',
-  },
-  arrow: {
-    backgroundColor: '#FFFFFF',
-    padding: 8,
-    borderRadius: 8,
+    color: '#333', 
   },
   arrowText: {
     fontSize: 16,

@@ -5,6 +5,8 @@ import LoginPage from './screens/LoginPage';
 import HomeScreen from './screens/HomeScreen';
 import ForgetPassword from './screens/ForgetPassword';
 import Register from './screens/Register';
+import ProfilePage from './header/ProfilePage';
+import ItemList from './screens/ItemList';
 
 import test from './screens/ContactPage'
 
@@ -18,6 +20,8 @@ const App = () => {
         <Stack.Screen name="HomeScreen" component={HomeScreen} />
         <Stack.Screen name="ForgetPassword" component={ForgetPassword} />
         <Stack.Screen name="Register" component={Register} />
+        <Stack.Screen name="ProfilePage" component={ProfilePage} />
+        <Stack.Screen name='ItemList' component={ItemList}/>
       </Stack.Navigator>
     </NavigationContainer>
     // test()
