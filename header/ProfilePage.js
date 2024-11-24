@@ -4,8 +4,8 @@ import { FontAwesome } from '@expo/vector-icons';
 
 export default function ProfilePage() {
   return (
-    <ScrollView style={styles.containe
-      <View style={[styles.profileSection, { width: screenWidth * 0.75 }]}> 
+    <ScrollView style={styles.container}>
+      <View style={styles.profileSection}>
         <View style={styles.avatarPlaceholderContainer}>
           <View style={styles.avatarPlaceholder}>
             <FontAwesome name="user-circle" size={70} />
