@@ -7,7 +7,7 @@ const screenWidth = Dimensions.get('window').width;
 export default function ProfilePage() {
   return (
     <ScrollView style={styles.container}>
-      <View style={[styles.profileSection, { width: screenWidth * 0.75 }]}> {/* Set the profile section to take up 3/4 of the screen width */}
+      <View style={[styles.profileSection, { width: screenWidth * 0.75 }]}> 
         <View style={styles.avatarPlaceholderContainer}>
           <View style={styles.avatarPlaceholder}>
             <FontAwesome name="user-circle" size={70} color="#5C6BC0" />

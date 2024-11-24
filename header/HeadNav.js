@@ -34,7 +34,7 @@ const HeadNav = ({ navigation }) => {
         <TouchableOpacity onPress={() => navigation.navigate('CreatePost')}>
           <MaterialIcons name="add-box" size={24} color="#FF4081" style={styles.icon} />
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('Account')}>
+        <TouchableOpacity onPress={() => navigation.navigate('ProfilePage')}>
           <Ionicons name="person-circle" size={24} color="#8A2BE2" style={styles.icon} />
         </TouchableOpacity>
       </View>
@@ -44,9 +44,9 @@ const HeadNav = ({ navigation }) => {
 
 const styles = StyleSheet.create({
     header: {
-      flexDirection: 'row', // Align elements in a row
+      flexDirection: 'row', 
       alignItems: 'center',
-      justifyContent: 'space-between', // Space out elements
+      justifyContent: 'space-between', 
       backgroundColor: '#FFFFFF',
       paddingHorizontal: 16,
       paddingVertical: 12,
@@ -54,18 +54,18 @@ const styles = StyleSheet.create({
       borderBottomColor: '#DDDDDD',
     },
     navItem: {
-      paddingHorizontal: 8, // Add space around icons
+      paddingHorizontal: 8,
       justifyContent: 'center',
       alignItems: 'center',
     },
     navOptions: {
-      flexDirection: 'row', // Align nav text in a row
-      justifyContent: 'space-between', // Space out nav items
+      flexDirection: 'row',
+      justifyContent: 'space-between', 
       flex: 1,
-      marginHorizontal: 16, // Add space between nav text and icons
+      marginHorizontal: 16, 
     },
     navOption: {
-      marginHorizontal: 8, // Add space between each nav text
+      marginHorizontal: 8, 
     },
     navText: {
       fontSize: 16,
