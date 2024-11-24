@@ -2,14 +2,21 @@ import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView, Image } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
 
-export default function UserPage() {
+export default function UserPage({navigation,route}) {
+  const {user} = route.params; 
+  const items =[
+    { id: '1', title: 'Post Item 1' },
+    { id: '2', title: 'Post Item 2' },
+    { id: '3', title: 'Post Item 3' },
+    { id: '4', title: 'Post Item 4' },
+  ];
   return (
     <View style={styles.container}>
       <View style={styles.profileSection}>
         <View style={styles.avatarPlaceholder}>
           <FontAwesome name="user-circle" size={100} color="#5C6BC0" />
         </View>
-        <Text style={styles.userName}>User Name</Text>
+        <Text style={styles.userName}> {user.name} </Text>
         <View style={styles.statsSection}>
           <View style={styles.statsItem}>
             <Text style={styles.statsNumber}>2</Text>
@@ -28,17 +35,19 @@ export default function UserPage() {
           <TouchableOpacity style={styles.followButton}>
             <Text style={styles.buttonText}>Follow</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.messageButton}>
+          <TouchableOpacity style={styles.messageButton}
+            onPress={() => navigation.navigate('ContactPage')}>
             <Text style={styles.buttonText}>Message</Text>
           </TouchableOpacity>
         </View>
       </View>
 
       <ScrollView contentContainerStyle={styles.gallerySection}>
-        {[...Array(9)].map((_, index) => (
-          <View key={index} style={styles.galleryItem}>
+        {items.map((item, index) => (
+          <TouchableOpacity key={index} style={styles.galleryItem}
+          onPress={() => navigation.navigate('PostDetailPage', { item: item})}>
             <FontAwesome name="image" size={50} color="#8e8e93" />
-          </View>
+          </TouchableOpacity>
         ))}
       </ScrollView>
     </View>
@@ -116,7 +125,6 @@ const styles = StyleSheet.create({
   gallerySection: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    justifyContent: 'space-around',
     paddingHorizontal: 10,
     paddingTop: 20,
   },

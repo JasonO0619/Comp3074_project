@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, FlatList, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, FlatList, ScrollView, TouchableOpacity} from 'react-native';
 import HeadNav from '../header/HeadNav';
 
 const HomeScreen = ({ navigation }) => {
@@ -36,9 +36,10 @@ const HomeScreen = ({ navigation }) => {
   ];
 
   const renderSquare = ({ item }) => (
-    <View style={styles.square}>
+    <TouchableOpacity key={item.id} style={styles.square}
+      onPress={() => navigation.navigate('PostDetailPage', { item: item})}>
       <Text style={styles.itemText}>{item.title}</Text>
-    </View>
+    </TouchableOpacity>
   );
 
   return (
