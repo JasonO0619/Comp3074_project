@@ -1,12 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
 
-export default function FavouritesPage() {
+export default function FavouritesPage({ navigation }) {
+  // State to track the selected tab
+  const [selectedTab, setSelectedTab] = useState('Post');
+
+  // Data to be displayed based on selected tab
+  const postData = [
+    { id: '1', title: 'Post Item 1' },
+    { id: '2', title: 'Post Item 2' },
+    { id: '3', title: 'Post Item 3' },
+    { id: '4', title: 'Post Item 4' },
+  ];
+
+  const userData = [
+    { id: '1', title: 'User Item A' },
+    { id: '2', title: 'User Item B' },
+    { id: '3', title: 'User Item C' },
+    { id: '4', title: 'User Item D' },
+  ];
+
+  // Select data based on selectedTab
+  const items = selectedTab === 'Post' ? postData : userData;
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <TouchableOpacity style={styles.backButton}>
+        <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
           <FontAwesome name="arrow-left" size={24} color="#000" />
           <Text style={styles.backButtonText}>Go back</Text>
         </TouchableOpacity>
@@ -15,17 +36,27 @@ export default function FavouritesPage() {
       </View>
 
       <View style={styles.tabContainer}>
-        <TouchableOpacity style={styles.tabItem}><Text style={styles.tabText}>Post</Text></TouchableOpacity>
-        <TouchableOpacity style={styles.tabItem}><Text style={styles.tabText}>User</Text></TouchableOpacity>
+        <TouchableOpacity
+          style={[styles.tabItem, selectedTab === 'Post' && styles.activeTabItem]}
+          onPress={() => setSelectedTab('Post')}
+        >
+          <Text style={[styles.tabText, selectedTab === 'Post' && styles.activeTabText]}>Post</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={[styles.tabItem, selectedTab === 'User' && styles.activeTabItem]}
+          onPress={() => setSelectedTab('User')}
+        >
+          <Text style={[styles.tabText, selectedTab === 'User' && styles.activeTabText]}>User</Text>
+        </TouchableOpacity>
       </View>
 
       <ScrollView style={styles.listContainer}>
-        {[...Array(4)].map((_, index) => (
-          <View key={index} style={styles.listItem}>
+        {items.map((item) => (
+          <View key={item.id} style={styles.listItem}>
             <View style={styles.imagePlaceholder}>
               <FontAwesome name="image" size={50} color="#8e8e93" />
             </View>
-            <Text style={styles.itemTitle}>Title</Text>
+            <Text style={styles.itemTitle}>{item.title}</Text>
             <TouchableOpacity style={styles.removeButton}>
               <Text style={styles.removeButtonText}>Remove</Text>
             </TouchableOpacity>
@@ -75,9 +106,16 @@ const styles = StyleSheet.create({
   tabItem: {
     paddingHorizontal: 15,
   },
+  activeTabItem: {
+    borderBottomWidth: 2,
+    borderBottomColor: '#fff',
+  },
   tabText: {
     fontSize: 16,
     color: '#fff',
+  },
+  activeTabText: {
+    fontWeight: 'bold',
   },
   listContainer: {
     paddingHorizontal: 20,

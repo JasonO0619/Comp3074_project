@@ -1,11 +1,14 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
+import HeadNav from './HeadNav';
 
-export default function ProfilePage() {
+export default function ProfilePage({navigation}) {
   return (
-    <ScrollView style={styles.containe
-      <View style={[styles.profileSection, { width: screenWidth * 0.75 }]}> 
+    <ScrollView style={styles.container}>
+      <HeadNav navigation={navigation} />
+
+      <View style={[styles.profileSection]}> 
         <View style={styles.avatarPlaceholderContainer}>
           <View style={styles.avatarPlaceholder}>
             <FontAwesome name="user-circle" size={70} />
@@ -27,19 +30,24 @@ export default function ProfilePage() {
       </View>
 
       <View style={styles.menuSection}>
-        <MenuItem icon="list" title="My List" />
-        <MenuItem icon="heart" title="Favourites" />
-        <MenuItem icon="cog" title="Settings" />
-        <MenuItem icon="comment" title="Announcements" />
-        <MenuItem icon="pencil" title="Reviews" />
+        <MenuItem icon="list" title="My List"
+          onPress={() => navigation.navigate('MyListPage')} />
+        <MenuItem icon="heart" title="Favourites" 
+          onPress={() => navigation.navigate('FavouritesPage')} />
+        <MenuItem icon="cog" title="Settings"
+          onPress={() => navigation.navigate('SettingsPage')} />
+        <MenuItem icon="comment" title="Announcements"
+          onPress={() => navigation.navigate('AnnouncementsPage')} />
+        <MenuItem icon="pencil" title="Reviews"
+          onPress={() => navigation.navigate('ReviewsPage')} />
       </View>
     </ScrollView>
   );
 }
 
-function MenuItem({ icon, title }) {
+function MenuItem({ icon, title, onPress }) {
   return (
-    <TouchableOpacity style={styles.menuItem}>
+    <TouchableOpacity style={styles.menuItem} onPress={onPress}>
       <FontAwesome name={icon} size={24} color="#fff" />
       <Text style={styles.menuText}>{title}</Text>
     </TouchableOpacity>
@@ -50,7 +58,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#E0F7FA',
-    paddingTop: 40,
   },
   profileSection: {
     alignItems: 'center',
