@@ -6,6 +6,8 @@ import HomeScreen from './screens/HomeScreen';
 import ForgetPassword from './screens/ForgetPassword';
 import Register from './screens/Register';
 
+import test from './screens/ContactPage'
+
 const Stack = createStackNavigator();
 
 const App = () => {
@@ -18,6 +20,7 @@ const App = () => {
         <Stack.Screen name="Register" component={Register} />
       </Stack.Navigator>
     </NavigationContainer>
+    // test()
   );
 };
 
