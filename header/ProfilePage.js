@@ -7,7 +7,6 @@ export default function ProfilePage({navigation}) {
   return (
     <ScrollView style={styles.container}>
       <HeadNav navigation={navigation} />
-
       <View style={[styles.profileSection]}> 
         <View style={styles.avatarPlaceholderContainer}>
           <View style={styles.avatarPlaceholder}>
