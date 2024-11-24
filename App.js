@@ -13,6 +13,7 @@ import FavouritesPage from './screens/FavouritesPage';
 import PostDetailPage from './screens/PostDetailPage';
 import ContactPage from './screens/ContactPage';
 import UserPage from './screens/UserPage';
+import AnnouncementsPage from './screens/AnnouncementPage';
 
 
 const Stack = createStackNavigator();
@@ -33,6 +34,8 @@ const App = () => {
         <Stack.Screen name="PostDetailPage" component={PostDetailPage} />
         <Stack.Screen name="ContactPage" component={ContactPage} />
         <Stack.Screen name="UserPage" component={UserPage} />
+        <Stack.Screen name="AnnouncementsPage" component={AnnouncementsPage} />
+
 
 
 
