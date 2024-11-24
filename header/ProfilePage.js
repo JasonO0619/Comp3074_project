@@ -19,7 +19,8 @@ export default function ProfilePage({navigation}) {
           </View>
         </View>
         <View style={styles.buttonContainer}>
-          <TouchableOpacity style={styles.editButton}>
+          <TouchableOpacity style={styles.editButton}
+            onPress={()=> navigation.navigate('EditProfile')}>
             <Text style={styles.buttonText}>Edit</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.shareButton}>

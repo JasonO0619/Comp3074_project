@@ -14,6 +14,7 @@ import PostDetailPage from './screens/PostDetailPage';
 import ContactPage from './screens/ContactPage';
 import UserPage from './screens/UserPage';
 import AnnouncementsPage from './screens/AnnouncementPage';
+import EditProfile from './screens/EditProfile';
 
 
 const Stack = createStackNavigator();
@@ -35,9 +36,7 @@ const App = () => {
         <Stack.Screen name="ContactPage" component={ContactPage} />
         <Stack.Screen name="UserPage" component={UserPage} />
         <Stack.Screen name="AnnouncementsPage" component={AnnouncementsPage} />
-
-
-
+        <Stack.Screen name="EditProfile" component={EditProfile} />
 
       </Stack.Navigator>
     </NavigationContainer>
