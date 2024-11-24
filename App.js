@@ -8,6 +8,8 @@ import Register from './screens/Register';
 import ProfilePage from './header/ProfilePage';
 import ItemList from './screens/ItemList';
 
+import test from './screens/ContactPage'
+
 const Stack = createStackNavigator();
 
 const App = () => {
@@ -22,6 +24,7 @@ const App = () => {
         <Stack.Screen name='ItemList' component={ItemList}/>
       </Stack.Navigator>
     </NavigationContainer>
+    // test()
   );
 };
 
