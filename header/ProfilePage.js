@@ -1,16 +1,14 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, ScrollView, Dimensions } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
-
-const screenWidth = Dimensions.get('window').width;
 
 export default function ProfilePage() {
   return (
     <ScrollView style={styles.container}>
-      <View style={[styles.profileSection, { width: screenWidth * 0.75 }]}> {/* Set the profile section to take up 3/4 of the screen width */}
+      <View style={styles.profileSection}>
         <View style={styles.avatarPlaceholderContainer}>
           <View style={styles.avatarPlaceholder}>
-            <FontAwesome name="user-circle" size={70} color="#5C6BC0" />
+            <FontAwesome name="user-circle" size={70} />
           </View>
           <View style={styles.userInfoContainer}>
             <Text style={styles.userName}>User Name</Text>
@@ -51,7 +49,7 @@ function MenuItem({ icon, title }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#6ab0af',
+    backgroundColor: '#E0F7FA',
     paddingTop: 40,
   },
   profileSection: {
@@ -61,7 +59,7 @@ const styles = StyleSheet.create({
   avatarPlaceholderContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#e6dfff',
+    backgroundColor: '#E0F7FA',
     padding: 10,
     borderRadius: 10,
   },
