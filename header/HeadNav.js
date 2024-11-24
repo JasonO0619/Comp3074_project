@@ -2,11 +2,11 @@ import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { FontAwesome, Ionicons, MaterialIcons } from '@expo/vector-icons';
 
-const Header = ({ navigation }) => {
+const HeadNav = ({ navigation }) => {
   return (
     <View style={styles.header}>
       {/* Left: Home Icon */}
-      <TouchableOpacity onPress={() => navigation.navigate('Home')}>
+      <TouchableOpacity onPress={() => navigation.navigate('HomeScreen')}>
         <FontAwesome name="home" size={28} color="black" style={styles.icon} />
       </TouchableOpacity>
 
@@ -30,10 +30,10 @@ const Header = ({ navigation }) => {
         <TouchableOpacity onPress={() => navigation.navigate('Search')}>
           <Ionicons name="search" size={24} color="black" style={styles.icon} />
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('CreateItem')}>
+        <TouchableOpacity onPress={() => navigation.navigate('CreatePost')}>
           <MaterialIcons name="add-box" size={28} color="#FF4081" style={styles.icon} />
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
+        <TouchableOpacity onPress={() => navigation.navigate('Account')}>
           <Ionicons name="person-circle" size={28} color="#8A2BE2" style={styles.icon} />
         </TouchableOpacity>
       </View>
@@ -73,4 +73,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Header;
+export default HeadNav;
