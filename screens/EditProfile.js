@@ -39,6 +39,7 @@ export default function EditProfilePage({ navigation }) {
           placeholder="Last Name"
           placeholderTextColor="#8e8e93"
         />
+        <Text style={styles.label}>Change Password</Text>
         <TextInput
           style={styles.input}
           placeholder="Change Password"
@@ -95,6 +96,12 @@ const styles = StyleSheet.create({
     backgroundColor: '#e6dfff',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  label: {
+    fontSize: 16,
+    color: '#fff',
+    marginBottom: 5,
+    marginLeft: 5,
   },
   uploadButton: {
     backgroundColor: '#f28b82',
