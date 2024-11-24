@@ -10,9 +10,10 @@ import ItemList from './screens/ItemList';
 import CreatePost from './header/CreatePost';
 import MyListPage from './screens/MyListPage';
 import FavouritesPage from './screens/FavouritesPage';
+import PostDetailPage from './screens/PostDetailPage';
+import ContactPage from './screens/ContactPage';
+import UserPage from './screens/UserPage';
 
-
-import test from './screens/ContactPage'
 
 const Stack = createStackNavigator();
 
@@ -29,6 +30,10 @@ const App = () => {
         <Stack.Screen name="CreatePost" component={CreatePost} />
         <Stack.Screen name="MyListPage" component={MyListPage} />
         <Stack.Screen name="FavouritesPage" component={FavouritesPage} />
+        <Stack.Screen name="PostDetailPage" component={PostDetailPage} />
+        <Stack.Screen name="ContactPage" component={ContactPage} />
+        <Stack.Screen name="UserPage" component={UserPage} />
+
 
 
       </Stack.Navigator>

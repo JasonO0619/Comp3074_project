@@ -2,11 +2,13 @@ import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, TextInput } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
 
-export default function PostDetailPage() {
+export default function PostDetailPage({navigation, route}) {
+  const {item} = route.params; 
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <TouchableOpacity style={styles.backButton}>
+      <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
           <FontAwesome name="arrow-left" size={24} color="#000" />
           <Text style={styles.backButtonText}>Go back</Text>
         </TouchableOpacity>
@@ -25,8 +27,8 @@ export default function PostDetailPage() {
       </View>
 
       <View style={styles.detailSection}>
-        <Text style={styles.detailText}>Item Name: (Insert Item Name)</Text>
-        <Text style={styles.detailText}>Description: (Insert Description)</Text>
+        <Text style={styles.detailText}>Title: { item.title } </Text>
+        <Text style={styles.detailText}>Description: (item Description)</Text>
         <Text style={styles.detailText}>Location Found: (Insert Location Found)</Text>
         <Text style={styles.detailText}>Current Location: (Insert Current Location)</Text>
         <Text style={styles.detailText}>Additional Comments:</Text>
@@ -37,7 +39,8 @@ export default function PostDetailPage() {
         />
       </View>
 
-      <TouchableOpacity style={styles.contactButton}>
+      <TouchableOpacity style={styles.contactButton}
+        onPress={() => navigation.navigate('ContactPage')}>
         <Text style={styles.contactButtonText}>Contact</Text>
       </TouchableOpacity>
     </View>

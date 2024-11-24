@@ -3,10 +3,8 @@ import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from 'react-nati
 import { FontAwesome } from '@expo/vector-icons';
 
 export default function FavouritesPage({ navigation }) {
-  // State to track the selected tab
   const [selectedTab, setSelectedTab] = useState('Post');
 
-  // Data to be displayed based on selected tab
   const postData = [
     { id: '1', title: 'Post Item 1' },
     { id: '2', title: 'Post Item 2' },
@@ -21,7 +19,6 @@ export default function FavouritesPage({ navigation }) {
     { id: '4', title: 'User Item D' },
   ];
 
-  // Select data based on selectedTab
   const items = selectedTab === 'Post' ? postData : userData;
 
   return (
@@ -32,7 +29,7 @@ export default function FavouritesPage({ navigation }) {
           <Text style={styles.backButtonText}>Go back</Text>
         </TouchableOpacity>
         <Text style={styles.title}>Favourite</Text>
-        <View style={{ width: 24 }} /> {/* Placeholder to balance the back button */}
+        <View style={{ width: 24 }} />
       </View>
 
       <View style={styles.tabContainer}>
@@ -52,7 +49,11 @@ export default function FavouritesPage({ navigation }) {
 
       <ScrollView style={styles.listContainer}>
         {items.map((item) => (
-          <View key={item.id} style={styles.listItem}>
+          <TouchableOpacity
+            key={item.id}
+            style={styles.listItem}
+            onPress={() => navigation.navigate('PostDetailPage', { item: item})}
+          >
             <View style={styles.imagePlaceholder}>
               <FontAwesome name="image" size={50} color="#8e8e93" />
             </View>
@@ -60,7 +61,7 @@ export default function FavouritesPage({ navigation }) {
             <TouchableOpacity style={styles.removeButton}>
               <Text style={styles.removeButtonText}>Remove</Text>
             </TouchableOpacity>
-          </View>
+          </TouchableOpacity>
         ))}
       </ScrollView>
     </View>

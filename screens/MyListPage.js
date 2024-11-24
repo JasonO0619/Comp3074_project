@@ -75,7 +75,8 @@ export default function MyListPage({navigation}) {
 
       <ScrollView style={styles.listContainer}>
         {items.map((item) => (
-          <View key={item.id} style={styles.listItem}>
+          <TouchableOpacity key={item.id} style={styles.listItem}
+            onPress={() => navigation.navigate('PostDetailPage', { item: item})}>
             <View style={styles.imagePlaceholder}>
               <FontAwesome name="image" size={50} color="#8e8e93" />
             </View>
@@ -83,7 +84,7 @@ export default function MyListPage({navigation}) {
             <TouchableOpacity style={styles.deleteButton}>
               <Text style={styles.deleteButtonText}>Delete</Text>
             </TouchableOpacity>
-          </View>
+          </TouchableOpacity>
         ))}
       </ScrollView>
     </View>
