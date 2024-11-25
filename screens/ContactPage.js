@@ -2,22 +2,24 @@ import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, TextInput } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
 
-export default function ContactPage() {
+export default function ContactPage({navigation}) {
+  const user = { name: 'admin' }
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <TouchableOpacity style={styles.backButton}>
-          <FontAwesome name="arrow-left" size={24} color="#000" />
+      <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
+      <FontAwesome name="arrow-left" size={24} color="#000" />
           <Text style={styles.backButtonText}>Go back</Text>
         </TouchableOpacity>
       </View>
 
-      <View style={styles.profileSection}>
+      <TouchableOpacity style={styles.profileSection} 
+        onPress={() => navigation.navigate('UserPage',{ user: user})}>
         <View style={styles.avatarPlaceholder}>
         <FontAwesome name="user-circle" size={100} color="#5C6BC0" />
         </View>
         <Text style={styles.userName}>Name</Text>
-      </View>
+      </TouchableOpacity>
 
       <View style={styles.messageInputSection}>
         <TextInput
