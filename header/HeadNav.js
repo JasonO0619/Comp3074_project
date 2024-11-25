@@ -5,12 +5,10 @@ import { FontAwesome, Ionicons, MaterialIcons } from '@expo/vector-icons';
 const HeadNav = ({ navigation }) => {
   return (
     <View style={styles.header}>
-      {/* Home Icon */}
+      
       <TouchableOpacity onPress={() => navigation.navigate('HomeScreen')}>
         <FontAwesome name="home" size={24} color="#333" style={styles.icon} />
       </TouchableOpacity>
-
-      {/* Navigation Text */}
       <View style={styles.navOptions}>
         <TouchableOpacity onPress={() => navigation.navigate('ItemList', { category: 'SELL' })}>
           <Text style={styles.navText}>SELL</Text>
@@ -26,12 +24,11 @@ const HeadNav = ({ navigation }) => {
         </TouchableOpacity>
       </View>
 
-      {/* Right Icons */}
       <View style={styles.rightIcons}>
         <TouchableOpacity onPress={() => navigation.navigate('Search')}>
           <Ionicons name="search" size={24} color="#333" style={styles.icon} />
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('CreatePost')}>
+        <TouchableOpacity onPress={() => navigation.navigate('CreateFormPage')}>
           <MaterialIcons name="add-box" size={24} color="#FF4081" style={styles.icon} />
         </TouchableOpacity>
         <TouchableOpacity onPress={() => navigation.navigate('ProfilePage')}>

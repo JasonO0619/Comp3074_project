@@ -4,7 +4,7 @@ import { Picker } from '@react-native-picker/picker';
 import * as ImagePicker from 'expo-image-picker';
 import { FontAwesome } from '@expo/vector-icons';
 
-export default function FormPage() {
+export default function CreateFormPage() {
   const [selectedForm, setSelectedForm] = useState('sell');
   const [images, setImages] = useState([]);
 

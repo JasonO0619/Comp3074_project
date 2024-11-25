@@ -11,7 +11,7 @@ export default function MyListPage() {
           <Text style={styles.backButtonText}>Go back</Text>
         </TouchableOpacity>
         <Text style={styles.title}>My List</Text>
-        <View style={{ width: 24 }} /> {/* Placeholder to balance the back button */}
+        <View style={{ width: 24 }} /> 
       </View>
 
       <View style={styles.tabContainer}>

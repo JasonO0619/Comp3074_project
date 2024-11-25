@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
 
-export default function ProfilePage() {
+export default function ProfilePage({ navigation }) {
   return (
     <ScrollView style={styles.container}>
       <View style={styles.profileSection}>
@@ -27,19 +27,22 @@ export default function ProfilePage() {
       </View>
 
       <View style={styles.menuSection}>
-        <MenuItem icon="list" title="My List" />
-        <MenuItem icon="heart" title="Favourites" />
-        <MenuItem icon="cog" title="Settings" />
-        <MenuItem icon="comment" title="Announcements" />
-        <MenuItem icon="pencil" title="Reviews" />
+        <MenuItem icon="list" title="My List" navigation={navigation} target="MyListPage" />
+        <MenuItem icon="heart" title="Favourites" navigation={navigation} target="FavouritesPage" />
+        <MenuItem icon="cog" title="Settings" navigation={navigation} target="SettingsPage" />
+        <MenuItem icon="comment" title="Announcements" navigation={navigation} target="AnnouncementsPage" />
+        <MenuItem icon="pencil" title="Reviews" navigation={navigation} target="ReviewsPage" />
       </View>
     </ScrollView>
   );
 }
 
-function MenuItem({ icon, title }) {
+function MenuItem({ icon, title, navigation, target }) {
   return (
-    <TouchableOpacity style={styles.menuItem}>
+    <TouchableOpacity
+      style={styles.menuItem}
+      onPress={() => navigation.navigate(target)} 
+    >
       <FontAwesome name={icon} size={24} color="#fff" />
       <Text style={styles.menuText}>{title}</Text>
     </TouchableOpacity>
@@ -90,7 +93,7 @@ const styles = StyleSheet.create({
   buttonContainer: {
     flexDirection: 'row',
     marginTop: 15,
-  }, 
+  },
   editButton: {
     backgroundColor: '#f28b82',
     paddingVertical: 8,

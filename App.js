@@ -7,8 +7,11 @@ import ForgetPassword from './screens/ForgetPassword';
 import Register from './screens/Register';
 import ProfilePage from './header/ProfilePage';
 import ItemList from './screens/ItemList';
-
-import test from './screens/ContactPage'
+import ContactPage from './screens/ContactPage';
+import CreateFormPage from './screens/CreateFormPage';
+import PostDetailPage from './screens/PostDetailPage';
+import MyListPage from './screens/MyListPage';
+import FavouritesPage from './screens/FavouritesPage';
 
 const Stack = createStackNavigator();
 
@@ -22,6 +25,11 @@ const App = () => {
         <Stack.Screen name="Register" component={Register} />
         <Stack.Screen name="ProfilePage" component={ProfilePage} />
         <Stack.Screen name='ItemList' component={ItemList}/>
+        <Stack.Screen name='ContactPage' component={ContactPage}/>
+        <Stack.Screen name='CreateFormPage' component={CreateFormPage}/>
+        <Stack.Screen name='PostDetailPage' component={PostDetailPage}/>
+        <Stack.Screen name='MyListPage' component={MyListPage}/>
+        <Stack.Screen name='FavouritesPage' component={FavouritesPage}/>
       </Stack.Navigator>
     </NavigationContainer>
     // test()
