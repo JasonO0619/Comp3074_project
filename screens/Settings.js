@@ -34,7 +34,7 @@ const Settings = ({ navigation }) => {
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: '#f3f3f3',
+      backgroundColor: '#6ab0af',
       padding: 16,
       justifyContent: 'flex-start',
     },

@@ -11,7 +11,7 @@ export default function EditProfilePage({ navigation }) {
           <Text style={styles.backButtonText}>Go back</Text>
         </TouchableOpacity>
         <Text style={styles.title}>Edit Profile</Text>
-        <View style={{ width: 24 }} /> {/* Placeholder to balance the back button */}
+        <View style={{ width: 24 }} /> 
       </View>
 
       <View style={styles.avatarSection}>

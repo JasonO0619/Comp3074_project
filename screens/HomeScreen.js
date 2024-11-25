@@ -109,7 +109,7 @@ const HomeScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#E0F7FA',
+    backgroundColor: '#6ab0af',
   },
   header: {
     flexDirection: 'row',

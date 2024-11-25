@@ -56,7 +56,7 @@ const ItemList = ({ route, navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#E0F7FA',
+    backgroundColor: '#6ab0af',
   },
   title: {
     fontSize: 24,
