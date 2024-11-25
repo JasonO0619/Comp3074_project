@@ -7,7 +7,7 @@ import ForgetPassword from './screens/ForgetPassword';
 import Register from './screens/Register';
 import ProfilePage from './header/ProfilePage';
 import ItemList from './screens/ItemList';
-import Settings from './Settings';
+
 
 import test from './screens/ContactPage'
 
@@ -23,7 +23,7 @@ const App = () => {
         <Stack.Screen name="Register" component={Register} />
         <Stack.Screen name="ProfilePage" component={ProfilePage} />
         <Stack.Screen name='ItemList' component={ItemList}/>
-        <Stack.Screen name="Settings" component={Settings} />
+       
       </Stack.Navigator>
     </NavigationContainer>
     // test()
