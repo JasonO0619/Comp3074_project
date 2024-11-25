@@ -12,6 +12,7 @@ import CreateFormPage from './screens/CreateFormPage';
 import PostDetailPage from './screens/PostDetailPage';
 import MyListPage from './screens/MyListPage';
 import FavouritesPage from './screens/FavouritesPage';
+import Settings from './screens/Settings';
 
 const Stack = createStackNavigator();
 
@@ -30,6 +31,7 @@ const App = () => {
         <Stack.Screen name='PostDetailPage' component={PostDetailPage}/>
         <Stack.Screen name='MyListPage' component={MyListPage}/>
         <Stack.Screen name='FavouritesPage' component={FavouritesPage}/>
+        <Stack.Screen name='Settings' component={Settings}/>
       </Stack.Navigator>
     </NavigationContainer>
     // test()

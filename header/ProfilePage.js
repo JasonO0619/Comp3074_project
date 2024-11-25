@@ -29,7 +29,7 @@ export default function ProfilePage({ navigation }) {
       <View style={styles.menuSection}>
         <MenuItem icon="list" title="My List" navigation={navigation} target="MyListPage" />
         <MenuItem icon="heart" title="Favourites" navigation={navigation} target="FavouritesPage" />
-        <MenuItem icon="cog" title="Settings" navigation={navigation} target="SettingsPage" />
+        <MenuItem icon="cog" title="Settings" navigation={navigation} target="Settings" />
         <MenuItem icon="comment" title="Announcements" navigation={navigation} target="AnnouncementsPage" />
         <MenuItem icon="pencil" title="Reviews" navigation={navigation} target="ReviewsPage" />
       </View>
