@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, TextInput,} from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, TextInput } from 'react-native';
 import { FontAwesome, Ionicons, MaterialIcons } from '@expo/vector-icons';
 
 const HeadNav = ({ navigation }) => {
   const [isDropdownVisible, setIsDropdownVisible] = useState(false);
   const [isSearchVisible, setIsSearchVisible] = useState(false);
   const [searchText, setSearchText] = useState('');
+  const [unreadNotifications, setUnreadNotifications] = useState(4); 
 
   const dropdownOptions = [
     { id: '1', label: 'SELL', category: 'SELL' },
@@ -20,38 +21,18 @@ const HeadNav = ({ navigation }) => {
       name: 'Laptop',
       title: 'Laptop for Sale',
       description: 'A slightly used laptop in great condition.',
-      locationFound: 'Vancouver',
-      currentLocation: 'Burnaby',
     },
     {
       id: '2',
       name: 'Camera',
       title: 'Digital Camera',
       description: 'A DSLR camera in excellent condition.',
-      locationFound: 'Toronto',
-      currentLocation: 'Richmond',
-    },
-    {
-      id: '3',
-      name: 'Headphones',
-      title: 'Sony WH-1000XM4',
-      description: 'Noise-canceling headphones in excellent condition.',
-      locationFound: 'Montreal',
-      currentLocation: 'Quebec City',
-    },
-    {
-      id: '4',
-      name: 'Tablet',
-      title: 'Samsung Galaxy Tab',
-      description: 'A used Samsung tablet with a stylus.',
-      locationFound: 'Edmonton',
-      currentLocation: 'Calgary',
     },
   ];
 
   const handleDropdownSelect = (category) => {
     setIsDropdownVisible(false);
-    navigation.navigate('ItemList', { category }); 
+    navigation.navigate('ItemList', { category });
   };
 
   const handleSearch = () => {
@@ -59,16 +40,19 @@ const HeadNav = ({ navigation }) => {
       const filteredResults = items.filter((item) =>
         item.name.toLowerCase().includes(searchText.toLowerCase())
       );
-      setIsSearchVisible(false); 
+      setIsSearchVisible(false);
       navigation.navigate('Search', { query: searchText, results: filteredResults });
     }
   };
 
+  const handleNotifications = () => {
+    setUnreadNotifications(0); 
+    navigation.navigate('NotificationsPage'); 
+  };
+
   return (
     <View>
-      
       <View style={styles.header}>
-  
         <TouchableOpacity onPress={() => navigation.navigate('HomeScreen')}>
           <FontAwesome name="home" size={24} color="#333" style={styles.icon} />
         </TouchableOpacity>
@@ -78,7 +62,7 @@ const HeadNav = ({ navigation }) => {
             style={styles.dropdownTrigger}
             onPress={() => setIsDropdownVisible(!isDropdownVisible)}
           >
-            <Text style={styles.navText}>Options</Text>
+            <Text style={styles.navText}>Full Lists</Text>
             <Ionicons
               name={isDropdownVisible ? 'chevron-up' : 'chevron-down'}
               size={16}
@@ -99,7 +83,17 @@ const HeadNav = ({ navigation }) => {
             </View>
           )}
         </View>
+
         <View style={styles.rightIcons}>
+          <TouchableOpacity style={styles.notificationIcon} onPress={handleNotifications}>
+            <Ionicons name="notifications" size={24} color="#333" />
+            {unreadNotifications > 0 && (
+              <View style={styles.notificationBadge}>
+                <Text style={styles.badgeText}>{unreadNotifications}</Text>
+              </View>
+            )}
+          </TouchableOpacity>
+
           <TouchableOpacity onPress={() => setIsSearchVisible(!isSearchVisible)}>
             <Ionicons name="search" size={24} color="#333" style={styles.icon} />
           </TouchableOpacity>
@@ -111,6 +105,7 @@ const HeadNav = ({ navigation }) => {
               style={styles.icon}
             />
           </TouchableOpacity>
+
           <TouchableOpacity onPress={() => navigation.navigate('ProfilePage')}>
             <Ionicons
               name="person-circle"
@@ -121,6 +116,7 @@ const HeadNav = ({ navigation }) => {
           </TouchableOpacity>
         </View>
       </View>
+
       {isSearchVisible && (
         <View style={styles.searchContainer}>
           <TextInput
@@ -128,7 +124,7 @@ const HeadNav = ({ navigation }) => {
             placeholder="Search items..."
             value={searchText}
             onChangeText={setSearchText}
-            onSubmitEditing={handleSearch} 
+            onSubmitEditing={handleSearch}
           />
         </View>
       )}
@@ -161,7 +157,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 40,
     left: 0,
-    backgroundColor: '#fff',
+    backgroundColor: '#ffffff',
     borderRadius: 8,
     elevation: 5,
     zIndex: 10,
@@ -173,21 +169,39 @@ const styles = StyleSheet.create({
   },
   dropdownText: {
     fontSize: 14,
-    color: '#333',
+    color: '#000000',
   },
   navText: {
     fontSize: 16,
     fontWeight: 'bold',
-    color: '#333',
+    color: '#000000',
     marginRight: 4,
   },
   rightIcons: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
     alignItems: 'center',
   },
   icon: {
     marginHorizontal: 8,
+  },
+  notificationIcon: {
+    position: 'relative',
+    marginHorizontal: 8,
+  },
+  notificationBadge: {
+    position: 'absolute',
+    top: -5,
+    right: -5,
+    backgroundColor: '#FF0000',
+    borderRadius: 10,
+    paddingHorizontal: 6,
+    paddingVertical: 2,
+  },
+  badgeText: {
+    fontSize: 10,
+    color: '#FFF',
+    fontWeight: 'bold',
+    textAlign: 'center',
   },
   searchContainer: {
     backgroundColor: '#F9F9F9',

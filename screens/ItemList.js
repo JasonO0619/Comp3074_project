@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, FlatList, StyleSheet, TouchableOpacity } from 'react-native';
-import HeadNav from '../header/HeadNav'; // Ensure correct path
+import HeadNav from '../header/HeadNav'; 
 
 const ItemList = ({ route, navigation }) => {
   const { category } = route.params; 
@@ -27,7 +27,7 @@ const ItemList = ({ route, navigation }) => {
   };
 
   useEffect(() => {
-    setItems(data[category]); // Load items based on the selected category
+    setItems(data[category]); 
   }, [category]);
 
   const renderItem = ({ item }) => (

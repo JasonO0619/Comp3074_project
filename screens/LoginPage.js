@@ -1,13 +1,5 @@
 import React, { useState } from 'react';
-import {
-  View,
-  Text,
-  TextInput,
-  Button,
-  Alert,
-  StyleSheet,
-  TouchableOpacity,
-} from 'react-native';
+import {View, Text, TextInput, Button, Alert, StyleSheet, TouchableOpacity} from 'react-native';
 
 const LoginPage = ({ navigation }) => {
   const [email, setEmail] = useState('');
