@@ -18,6 +18,7 @@ import EditProfile from './screens/EditProfile';
 import ReviewsPage from './screens/ReviewsPage';
 import Settings from './screens/Settings';
 import Search from './header/Search';
+import NotificationsPage from './screens/NotificationsPage';
 
 
 const Stack = createStackNavigator();
@@ -43,6 +44,7 @@ const App = () => {
         <Stack.Screen name='ReviewsPage' component={ReviewsPage}/>
         <Stack.Screen name='UserPage' component={UserPage}/>
         <Stack.Screen name='Search' component={Search}/>
+        <Stack.Screen name='NotificationsPage' component={NotificationsPage}/>
           
       </Stack.Navigator>
     </NavigationContainer>
