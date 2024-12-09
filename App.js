@@ -17,6 +17,7 @@ import AnnouncementsPage from './screens/AnnouncementPage';
 import EditProfile from './screens/EditProfile';
 import ReviewsPage from './screens/ReviewsPage';
 import Settings from './screens/Settings';
+import Search from './header/Search';
 
 
 const Stack = createStackNavigator();
@@ -41,10 +42,10 @@ const App = () => {
         <Stack.Screen name='Settings' component={Settings}/>
         <Stack.Screen name='ReviewsPage' component={ReviewsPage}/>
         <Stack.Screen name='UserPage' component={UserPage}/>
+        <Stack.Screen name='Search' component={Search}/>
           
       </Stack.Navigator>
     </NavigationContainer>
-    // test()
   );
 };
 
