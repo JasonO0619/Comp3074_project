@@ -61,7 +61,7 @@ export default function PostDetailPage({ navigation, route }) {
 const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
-    backgroundColor: '#6ab0af',
+    backgroundColor: '#1D4976',
     paddingTop: 40,
     paddingHorizontal: 20,
     alignItems: 'center',

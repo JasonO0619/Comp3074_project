@@ -45,7 +45,7 @@ const ForgetPassword = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#6ab0af',
+    backgroundColor: '#1D4976',
     padding: 16,
     justifyContent: 'center',
     alignItems: 'center',

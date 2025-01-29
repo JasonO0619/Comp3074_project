@@ -19,7 +19,7 @@ export default function AnnouncementsPage({ navigation }) {
           <Text style={styles.backButtonText}>Go back</Text>
         </TouchableOpacity>
         <Text style={styles.title}>Announcements</Text>
-        <View style={{ width: 24 }} /> {/* Placeholder to balance the back button */}
+        <View style={{ width: 24 }} /> 
       </View>
 
       <ScrollView style={styles.listContainer}>
@@ -37,7 +37,7 @@ export default function AnnouncementsPage({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#6ab0af',
+    backgroundColor: '#1D4976',
     paddingTop: 40,
   },
   header: {

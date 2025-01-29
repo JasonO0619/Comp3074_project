@@ -7,6 +7,7 @@ import {
   Alert,
   StyleSheet,
   TouchableOpacity,
+  Image
 } from 'react-native';
 
 const LoginPage = ({ navigation }) => {
@@ -36,7 +37,11 @@ const LoginPage = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>TRADENEST</Text>
+     <Image
+        style={styles.logo}
+        source={require('../assets/logo.png')} 
+        
+      />
 
       <View style={styles.inputGroup}>
         <Text style={styles.label}>Email:</Text>
@@ -60,7 +65,9 @@ const LoginPage = ({ navigation }) => {
         />
       </View>
 
-      <Button title="Sign In" color="#FF8B94" onPress={handleSignIn} />
+      <TouchableOpacity style={styles.button} onPress={handleSignIn}>
+        <Text style={styles.buttonText}>Sign In</Text>
+      </TouchableOpacity>
 
       <View style={styles.linkContainer}>
         <TouchableOpacity onPress={() => navigation.navigate('ForgetPassword')}>
@@ -77,16 +84,10 @@ const LoginPage = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#6ab0af', 
+    backgroundColor: '#1D4976', 
     justifyContent: 'center',
     alignItems: 'center',
     padding: 16,
-  },
-  title: {
-    fontSize: 30,
-    fontWeight: 'bold',
-    marginBottom: 32,
-    color: '#000000', // black
   },
   inputGroup: {
     width: '100%',
@@ -94,13 +95,13 @@ const styles = StyleSheet.create({
   },
   label: {
     fontSize: 18,
-    color: '#000000', // black
+    color: '#ffffff', 
     marginBottom: 4,
   },
   input: {
     width: '100%',
     height: 50,
-    backgroundColor: '#FFFFFF', // white
+    backgroundColor: '#FFFFFF',
     borderRadius: 8,
     borderWidth: 1,
     borderColor: '#CCCCCC',
@@ -114,9 +115,25 @@ const styles = StyleSheet.create({
   },
   link: {
     fontSize: 15,
-    color: '#000000', // black
+    color: '#ffffff', 
     marginHorizontal: 8,
     textDecorationLine: 'underline',
+  },
+  logo: {
+    width: '80%',
+    height: '40%'
+  },
+  button: {
+    backgroundColor: '#ffffff',
+    padding: 15,
+    borderRadius: 8,
+    alignItems: 'center',
+    marginTop: 16,
+  },
+  buttonText: {
+    color: '#000000', 
+    fontSize: 16,
+    fontWeight: 'bold',
   },
 });
 

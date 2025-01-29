@@ -38,7 +38,7 @@ export default function ContactPage({navigation}) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#6ab0af',
+    backgroundColor: '#1D4976',
     paddingTop: 40,
   },
   header: {
